@@ -15,7 +15,7 @@ export default function AdminView() {
   useEffect(() => {
     callBackend();
   },[]);
-  const hours = ['7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM'];
+  const hours = ['9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM'];
   return (
     <div>
       <h1 className="text-4xl font-bold text-center">
@@ -25,26 +25,29 @@ export default function AdminView() {
         <thead>
           <tr>
             <th className="px-4 py-2 border">Day</th>
-            {hours.map((hour, idx) => (
-              <th key={idx} className="px-4 py-2 border">{hour}</th>
+            <th className="px-4 py-2 border">Category</th>
+            {hours.map(hour => (
+              <th key={uuidv4()} className="px-4 py-2 border">{hour}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {data.map((day, idx) => (
+          {data.map(day => (
             <>
             <tr key={uuidv4()}>
             <td rowSpan="2" key={uuidv4()} className="px-4 py-2 border">{day.date}</td>
+            <td className="px-4 py-2 border">Tickets</td>
           {
-              hours.map((hour, idx2) => (
-                <td key={idx2} className="px-4 py-2 border">{day['hours'][hour]['tickets']}</td>
+              hours.map(hour => (
+                <td key={uuidv4()} className="px-4 py-2 border">{day['hours'][hour]['tickets']}</td>
               ))
             }
             </tr>
             <tr key={uuidv4()}>
+            <td className="px-4 py-2 border">Wait Time</td>
               {
-              hours.map((hour, idx2) => (
-                <td key={idx2} className="px-4 py-2 border">{(day['hours'][hour]['tot_wait']/60).toFixed(1)}</td>
+              hours.map(hour => (
+                <td key={uuidv4()} className="px-4 py-2 border">{(day['hours'][hour]['tot_wait']/60).toFixed(1)}</td>
               ))
             }
             </tr>
