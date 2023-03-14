@@ -38,7 +38,8 @@ export default function AdminView() {
     "9 PM",
   ];
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const startStr = `${String(startDate.getFullYear())}-${String(
       startDate.getMonth() + 1
     )}-${String(startDate.getDate())}`;
@@ -49,7 +50,8 @@ export default function AdminView() {
     callBackend(url);
   };
 
-  const handleSubmitSummary = () => {
+  const handleSubmitSummary = (e) => {
+    e.preventDefault();
     const startStr = `${String(startDate.getFullYear())}-${String(
       startDate.getMonth() + 1
     )}-${String(startDate.getDate())}`;
@@ -58,12 +60,6 @@ export default function AdminView() {
     )}-${String(endDate.getDate())}`;
     const url = `${process.env.NEXT_PUBLIC_TA_SUMMARY}?start_date=${startStr}&end_date=${endStr}`;
     callBackend(url);
-  };
-
-  const getData = (e) => {
-    e.preventDefault();
-    handleSubmit();
-    handleSubmitSummary();
   };
 
   // function getClassForWaitTime(waitTime) {
@@ -80,7 +76,7 @@ export default function AdminView() {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold text-center">TA-Metrics</h1>
+      <h1 className="text-4xl mt-2 font-bold text-center">TA-Metrics</h1>
 
       <h3 className="mt-4 ml-6">Input Dates:</h3>
       <div className="mt-4 ml-6">
@@ -105,7 +101,7 @@ export default function AdminView() {
         />
         <button
           className="p-1 mt-2 text-white border-2 rounded bg-metal"
-          onClick={getData}
+          onClick={handleSubmit}
         >
           Submit
         </button>
