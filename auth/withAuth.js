@@ -3,7 +3,7 @@ import {useZustandStore} from "../store/store";
 import {useEffect} from "react";
 
 export const withAuth = (WrappedComponent) => {
-  const Wrapper = (props) => {
+  return function Wrapper(props) {
     const router = useRouter()
     const idToken = useZustandStore((state) => state.idToken)
 
@@ -16,6 +16,4 @@ export const withAuth = (WrappedComponent) => {
 
     return <WrappedComponent {...props} />
   }
-
-  return Wrapper
 }
