@@ -1,22 +1,24 @@
 import useSWR from 'swr';
 
 export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL;
-import { useAuth } from '../contexts/auth';
+// import { useAuth } from '../contexts/auth';
 
 export default function useResource() {
 
-    const { tokens, logout } = useAuth();
+    // const { tokens, logout } = useAuth();
 
-    const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
+    // const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
+    const { data, error, mutate } = useSWR(fetchResource);
 
     async function fetchResource(url) {
 
-        if (!tokens) {
-            return;
-        }
+        // if (!tokens) {
+        //     return;
+        // }
 
         try {
-            const response = await fetch(apiUrl, config());
+            //temporarily removed config() here as second parameter
+            const response = await fetch(url);
 
             const responseJSON = await response.json();
 
@@ -95,13 +97,14 @@ export default function useResource() {
 
     function handleError(err) {
         console.error(err);
-        logout();
+        // logout();
     }
 
     return {
         resources: data,
         error,
-        loading: tokens && !error && !data,
+        // loading: tokens && !error && !data,
+        fetchResource,
         createResource,
         deleteResource,
         updateResource,
