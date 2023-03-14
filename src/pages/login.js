@@ -20,6 +20,9 @@ export default function Login() {
       setIdToken(urlSearchParams.get('id_token'))
       router.push('/')
     }
+    if (urlSearchParams.has('expired')) {
+      setIdToken(null)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

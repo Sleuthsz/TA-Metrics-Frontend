@@ -7,7 +7,7 @@ function Home() {
   const clickTest = async () => {
     await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/slack/users`, {
       headers: {
-        Authentication: `Bearer ${idToken}`
+        Authorization: `Bearer ${idToken}`
       }
     })
   }
