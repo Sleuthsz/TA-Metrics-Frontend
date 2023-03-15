@@ -52,8 +52,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 | callBackend()            | Makes call to back end API and returns JSON data if available based on dates input |    O(n)    |    O(n)     | callBackend(url)              |
 | formatData()             | Formats data for Admin Chart.                                                      |    O(n)    |    O(n)     | setChartData(formatData(data) |
 | getClassForWaitTime      | Formats data for color coded rendering of Admin Table based on average times.      |    O(n)    |    O(n)     | getClassForWaitTime(waitTime) |
-|                          |                                                                                    |    O(n)    |    O(n)     |                               |
-|                          |                                                                                    |    O(n)    |    O(n)     |                               |
 
 
 ## Deploy on Vercel
