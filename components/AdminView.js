@@ -9,20 +9,6 @@ export default function AdminView({ data, callBackend }) {
   const [endDate, setEndDate] = useState(null);
   const [showChart, setShowChart] = useState(false);
 
-  async function callBackend(url) {
-    try {
-      const response = await fetch(url);
-      const responseJSON = await response.json();
-      console.log(responseJSON);
-      setData(responseJSON);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-  // useEffect(() => {
-  //   callBackend();
-  // },[]);
-
   const hours = [
     "9 AM",
     "10 AM",
@@ -39,15 +25,9 @@ export default function AdminView({ data, callBackend }) {
     "9 PM",
   ];
 
-  const handleSubmit = () => {
-    const startStr = `${String(startDate.getFullYear())}-${String(
-      startDate.getMonth() + 1
-    )}-${String(startDate.getDate())}`;
-    const endStr = `${String(endDate.getFullYear())}-${String(
-      endDate.getMonth() + 1
-    )}-${String(endDate.getDate())}`;
-    const url = `${process.env.NEXT_PUBLIC_TA_METRICS}?start_date=${startStr}&end_date=${endStr}`;
-    callBackend(url);
+
+  const toggleChart = () => {
+    setShowChart((prev) => !prev);
   };
 
   const handleSubmit = (event) => {
@@ -58,27 +38,11 @@ export default function AdminView({ data, callBackend }) {
     const endStr = `${String(endDate.getFullYear())}-${String(
       endDate.getMonth() + 1
     )}-${String(endDate.getDate())}`;
-    const url = `${process.env.NEXT_PUBLIC_TA_SUMMARY}?start_date=${startStr}&end_date=${endStr}`;
-    callBackend(url);
+    const url1 = `${process.env.NEXT_PUBLIC_TA_METRICS}?start_date=${startStr}&end_date=${endStr}`;
+    const url2 = `${process.env.NEXT_PUBLIC_TA_SUMMARY}?start_date=${startStr}&end_date=${endStr}`;
+    callBackend([url1, url2]);
   };
 
-  const getData = (e) => {
-    e.preventDefault();
-    handleSubmit();
-    handleSubmitSummary();
-  };
-
-  // function getClassForWaitTime(waitTime) {
-  //   const delta = data.average_time_delta;
-
-  //   if (waitTime > delta) {
-  //     return "bg-red-500";
-  //   } else if (waitTime < delta) {
-  //     return "bg-green-500";
-  //   } else {
-  //     return "bg-yellow-500";
-  //   }
-  // }
 
   return (
     <div>
@@ -111,18 +75,18 @@ export default function AdminView({ data, callBackend }) {
         >
           Submit
         </button>
+        <button
+        className="p-1 mt-2 text-white border-2 rounded bg-metal"
+        onClick={toggleChart}
+        >
+        {showChart ? "Show Table" : "Show Chart"}
+      </button>
       </div>
-      {showChart ? "Show Table" : "Show Chart"}
+
       {data.length > 0 && data[0].length > 0 && showChart && (
         <AdminChart data={data} />
       )}
       {data.length > 0 && !showChart && <AdminTable data={data} />}
-      <button
-        className="p-1 mt-2 text-white border-2 rounded bg-metal"
-        onClick={toggleChart}
-      >
-
-      </button>
     </div>
   );
 }
