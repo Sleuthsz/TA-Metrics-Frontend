@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import AdminChart from "./AdminChart";
+import AdminTable from "./AdminTable";
 
-export default function AdminView() {
-  const [data, setData] = useState([]);
+export default function AdminView({ data, callBackend }) {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [showChart, setShowChart] = useState(false);
 
   async function callBackend(url) {
     try {
@@ -38,8 +39,7 @@ export default function AdminView() {
     "9 PM",
   ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     const startStr = `${String(startDate.getFullYear())}-${String(
       startDate.getMonth() + 1
     )}-${String(startDate.getDate())}`;
@@ -50,8 +50,8 @@ export default function AdminView() {
     callBackend(url);
   };
 
-  const handleSubmitSummary = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     const startStr = `${String(startDate.getFullYear())}-${String(
       startDate.getMonth() + 1
     )}-${String(startDate.getDate())}`;
@@ -60,6 +60,12 @@ export default function AdminView() {
     )}-${String(endDate.getDate())}`;
     const url = `${process.env.NEXT_PUBLIC_TA_SUMMARY}?start_date=${startStr}&end_date=${endStr}`;
     callBackend(url);
+  };
+
+  const getData = (e) => {
+    e.preventDefault();
+    handleSubmit();
+    handleSubmitSummary();
   };
 
   // function getClassForWaitTime(waitTime) {
@@ -106,50 +112,17 @@ export default function AdminView() {
           Submit
         </button>
       </div>
-
-      {data.length > 0 && (
-        <table className="mx-auto my-8 border border-collapse table-auto">
-          <thead>
-            <tr>
-              <th className="px-4 py-2 border">Day</th>
-              <th className="px-4 py-2 border">Category</th>
-              {hours.map((hour) => (
-                <th key={`${hour}:${uuidv4()}`} className="px-4 py-2 border">
-                  {hour}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((day) => (
-              <>
-                <tr key={uuidv4()}>
-                  <td rowSpan="2" key={uuidv4()} className="px-4 py-2 border">
-                    {day.date}
-                  </td>
-                  <td className="px-4 py-2 border">Tickets</td>
-                  {hours.map((hour) => (
-                    <td
-                      key={uuidv4()}
-                      className={`px-4 py-2 border`}
-                    >
-                      {day["hours"][hour]["tickets"]}
-                    </td>
-                  ))}
-                </tr>
-                <tr key={uuidv4()}>
-                  <td className="px-4 py-2 border">Wait Time</td>
-                  {hours.map((hour) => (
-                    <td key={uuidv4()} className="px-4 py-2 border">
-                      {(day["hours"][hour]["tot_wait"] / 60).toFixed(1)}
-                    </td>
-                  ))}
-                </tr>
-              </>
-            ))}
-          </tbody>
-        </table>
+      {showChart ? "Show Table" : "Show Chart"}
+      {data.length > 0 && data[0].length > 0 && showChart && (
+        <AdminChart data={data} />
       )}
+      {data.length > 0 && !showChart && <AdminTable data={data} />}
+      <button
+        className="p-1 mt-2 text-white border-2 rounded bg-metal"
+        onClick={toggleChart}
+      >
+
+      </button>
     </div>
   );
 }
