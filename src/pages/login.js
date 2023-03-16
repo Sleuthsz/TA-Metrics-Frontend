@@ -1,35 +1,47 @@
 import {useRouter} from "next/router";
-import {useContext, useEffect} from "react";
+import {useContext, useEffect, useState} from "react";
 import SignInWithSlack from "../../components/SignInWithSlack";
 import {useZustandStore} from "../../store/store";
 import {shallow} from "zustand/shallow";
 import {AuthContext} from "../../contexts/authContext";
 
-export default function Login() {
+export default function Login(props) {
+  const [expiredMessage, setExpiredMessage] = useState('')
   const [idToken, setIdToken] = useZustandStore(
     (state) => [state.idToken, state.setIdToken],
     shallow
   )
   const router = useRouter()
 
-  const {setToken} = useContext(AuthContext)
+  const {setIsAuthorized} = useContext(AuthContext)
 
   useEffect(() => {
     if (idToken) {
       router.back()
     }
+
     const urlSearchParams = new URLSearchParams(window.location.href.split('?')[1])
     if (urlSearchParams.has('id_token')) {
       setIdToken(urlSearchParams.get('id_token'))
-      setToken(urlSearchParams.get('id_token'))
+      setIsAuthorized(true)
       router.push('/')
     }
     if (urlSearchParams.has('expired')) {
       setIdToken(null)
-      setToken(null)
+      setIsAuthorized(false)
     }
+    if (urlSearchParams.has('message')) {
+      setExpiredMessage(urlSearchParams.get('message'))
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return <SignInWithSlack/>
+  return (
+    <>
+      {expiredMessage && expiredMessage}
+      <br/>
+      <SignInWithSlack/>
+    </>
+  )
 }

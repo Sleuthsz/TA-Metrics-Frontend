@@ -12,7 +12,7 @@ export default function Home() {
     shallow
   )
 
-  const {token, setToken} = useContext(AuthContext)
+  const {isAuthorized, setIsAuthorized} = useContext(AuthContext)
 
   const clickTest = async () => {
     const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/slack/test`, {
@@ -22,13 +22,17 @@ export default function Home() {
     })
 
     const json = await response.json()
-    console.log(json)
     if (json) {
       const expired = json['expired']
       if (expired) {
         setIdToken(null)
-        setToken(null)
-        await router.push('/login')
+        setIsAuthorized(false)
+        await router.push({
+          pathname: '/login',
+          query: {
+            message: 'Your session is either invalid or expired'
+          },
+        })
       }
     }
   }
@@ -37,7 +41,7 @@ export default function Home() {
     if (!idToken) {
       router.push('/login')
     } else {
-      setToken(idToken)
+      setIsAuthorized(true)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -46,7 +50,7 @@ export default function Home() {
     <>
       <HTMLHead/>
       <main>
-        {token &&
+        {isAuthorized &&
           <>
             I am a protected page
             <br/>

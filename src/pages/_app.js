@@ -4,8 +4,8 @@ import {useState} from "react";
 
 
 export default function App({Component, pageProps}) {
-  const [token, setToken] = useState(null)
-  const value = {token, setToken}
+  const [isAuthorized, setIsAuthorized] = useState(false)
+  const value = {isAuthorized, setIsAuthorized}
 
   return (
     <AuthContext.Provider value={value}>

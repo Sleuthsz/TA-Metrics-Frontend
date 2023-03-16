@@ -6,10 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "ssl:setup": "node scripts/create-ssl-certs.js",
-    "ssl-dev": "NODE_EXTRA_CA_CERTS=\"$(cat ./certs/.capath)\" node scripts/create-local-server.js",
-    "win-ssl-dev": "set NODE_EXTRA_CA_CERTS=\"$(cat ./certs/.capath)\" && node scripts/create-local-server.js"
+    "lint": "next lint"
   },
   "dependencies": {
     "@slack/oauth": "^2.6.0",
