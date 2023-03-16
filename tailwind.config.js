@@ -2,7 +2,7 @@
 
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
+    ".src/pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -26,7 +26,7 @@ module.exports = {
         'th-green': '#15b981',
         'fake-button': '#d1fae4',
       },
-   },
+    },
   },
   plugins: [],
 }
