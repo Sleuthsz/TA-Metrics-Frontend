@@ -5,7 +5,7 @@ import {useZustandStore} from "../../store/store";
 import {shallow} from "zustand/shallow";
 import {AuthContext} from "../../contexts/authContext";
 
-export default function Login(props) {
+export default function Login() {
   const [expiredMessage, setExpiredMessage] = useState('')
   const [idToken, setIdToken] = useZustandStore(
     (state) => [state.idToken, state.setIdToken],
