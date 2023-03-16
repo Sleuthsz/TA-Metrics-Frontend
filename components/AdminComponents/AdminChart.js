@@ -1,21 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-
-const hours = [
-  "9 AM",
-  "10 AM",
-  "11 AM",
-  "12 PM",
-  "1 PM",
-  "2 PM",
-  "3 PM",
-  "4 PM",
-  "5 PM",
-  "6 PM",
-  "7 PM",
-  "8 PM",
-  "9 PM",
-];
+import { hours } from '../../data/sharedData'
 
 const formatData = (data) => {
   const formattedData = data[0].map((item) => {
@@ -23,7 +8,7 @@ const formatData = (data) => {
     let totalWait = 0.0;
     const hourlyData = hours.map((hour) => {
       const hourlyTickets = item["hours"][hour]["tickets"];
-      const hourlyWait = parseFloat((item["hours"][hour]["tot_wait"] / 60).toFixed(1));
+      const hourlyWait = parseFloat((item["hours"][hour]["time"] / 60).toFixed(1));
       totalTickets += hourlyTickets;
       totalWait += hourlyWait;
       const date = item.date;
