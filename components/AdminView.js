@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import AdminChart from "./AdminChart";
-import AdminTable from "./AdminTable";
+import AdminChart from "./AdminComponents/AdminChart";
+import AdminTable from "./AdminComponents/AdminTable";
+import DateChart from "./AdminComponents/DateChart";
 
 export default function AdminView({ data, callBackend }) {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
   const [showChart, setShowChart] = useState(false);
 
+<<<<<<< HEAD
   const hours = [
     "9 AM",
     "10 AM",
@@ -26,10 +24,13 @@ export default function AdminView({ data, callBackend }) {
   ];
 
 
+=======
+>>>>>>> 37f83d60238345ce740e3e0ab4dae21eff98b079
   const toggleChart = () => {
     setShowChart((prev) => !prev);
   };
 
+<<<<<<< HEAD
   const handleSubmit = (event) => {
     event.preventDefault();
     const startStr = `${String(startDate.getFullYear())}-${String(
@@ -44,11 +45,14 @@ export default function AdminView({ data, callBackend }) {
   };
 
 
+=======
+>>>>>>> 37f83d60238345ce740e3e0ab4dae21eff98b079
   return (
-    <div>
+    <div className="bg-yellow-50">
       <h1 className="text-4xl mt-2 font-bold text-center">TA-Metrics</h1>
 
       <h3 className="mt-4 ml-6">Input Dates:</h3>
+<<<<<<< HEAD
       <div className="mt-4 ml-6">
         <DatePicker
           className="mb-2 border-2 rounded bg-silver"
@@ -82,6 +86,15 @@ export default function AdminView({ data, callBackend }) {
         {showChart ? "Show Table" : "Show Chart"}
       </button>
       </div>
+=======
+      <DateChart callBackend={callBackend} />
+      <button
+        className="p-1 mt-2 text-white border-2 rounded bg-metal"
+        onClick={toggleChart}
+      >
+        {showChart ? "Show Table" : "Show Chart"}
+      </button>
+>>>>>>> 37f83d60238345ce740e3e0ab4dae21eff98b079
 
       {data.length > 0 && data[0].length > 0 && showChart && (
         <AdminChart data={data} />

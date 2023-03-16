@@ -1,7 +1,5 @@
 # TA Metrics
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Version
 
 *Version 1.0* Created team agreement, Trello board, README - March 6, 2023.
@@ -12,11 +10,32 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 *Version 1.4* Created API link for data to populate TA ticket View - March 11, 2023.
 
-*Version 1.5* Added Additional Tailwind styling, refactored component files and added conditionals for style rendering, updated README.md - March 13, 2023.
+*Version 1.5* Added Additional Tailwind styling, refactored component files and added conditionals for style rendering,
+updated README.md - March 13, 2023.
+
+*Version 1.6* Added more Tailwind styling, refactored component files and added Admin chart, updated README.md - March 14, 2023.
+
+*Version 1.7* Finalizing Styling, updated README, linked all auth components and files, added TAView chart - March 15, 2023.
 
 ## Getting Started
 
-First, run the development server:
+Disable checking SSL errors in the
+browser for local
+development: https://stackoverflow.com/questions/49661488/how-to-turn-off-ssl-check-on-chrome-and-firefox-for-localhost
+
+To install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` with the following variables:
+
+```dotenv
+NEXT_PUBLIC_BACKEND_BASE_URL=<YOUR_BASE_URL>
+```
+
+To run the development server:
 
 ```bash
 npm run dev
@@ -26,7 +45,7 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Resources
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
@@ -59,3 +78,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Updating context: https://stackoverflow.com/questions/41030361/how-to-update-react-context-from-inside-a-child-component
+
