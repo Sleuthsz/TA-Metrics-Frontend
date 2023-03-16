@@ -9,14 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@slack/oauth": "^2.6.0",
-    "@slack/web-api": "^6.8.1",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
     "next": "13.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "zustand": "^4.3.6"
+    "zustand": "^4.3.6",
+    "react-datepicker": "^4.10.0",
+    "recharts": "^2.4.3",
+    "swr": "^2.1.0",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

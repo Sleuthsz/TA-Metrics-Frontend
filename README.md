@@ -1,4 +1,19 @@
+# TA Metrics
+
 ## Getting Started
+
+## Version
+
+*Version 1.0* Created team agreement, Trello board, README - March 6, 2023.
+
+*Version 1.2* Initial creation of NextJS and all components - March 7,2023.
+
+*Version 1.3* Tailwinds initial creation in component files - March 10, 2023.
+
+*Version 1.4* Created API link for data to populate TA ticket View - March 11, 2023.
+
+*Version 1.5* Added Additional Tailwind styling, refactored component files and added conditionals for style rendering, updated README.md - March 13, 2023.
+
 
 To install dependencies:
 
@@ -16,6 +31,10 @@ To run the development server:
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
 ```
 
 ## Resources
