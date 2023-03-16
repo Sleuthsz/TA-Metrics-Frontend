@@ -1,11 +1,17 @@
-import HTMLHead from "../../components/HTMLHead";
 import {useZustandStore} from "../../store/store";
 import {useRouter} from "next/router";
-import {useContext, useEffect} from "react";
+import {useContext, useEffect, useState} from "react";
 import {shallow} from "zustand/shallow";
 import {AuthContext} from "../../contexts/authContext";
+import Head from "../../components/Head.js";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import AdminView from "../../components/AdminView";
+import jwtDecode from "jwt-decode";
+
 
 export default function Home() {
+  const [data, setData] = useState([]);
   const router = useRouter()
   const [idToken, setIdToken] = useZustandStore(
     (state) => [state.idToken, state.setIdToken],
@@ -14,26 +20,35 @@ export default function Home() {
 
   const {isAuthorized, setIsAuthorized} = useContext(AuthContext)
 
-  const clickTest = async () => {
-    const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/slack/test`, {
-      headers: {
-        Authorization: `Bearer ${idToken}`
+  async function callBackend(urls) {
+    const jwt = jwtDecode(idToken)
+    console.log(jwt)
+    try {
+      const responses = await Promise.all(urls.map((url) => fetch(url, {
+        headers: {
+          Authorization: `Bearer ${idToken}`
+        }
+      })));
+      const data = await Promise.all(
+        responses.map((response) => response.json())
+      );
+      if (data) {
+        const expired = data['expired']
+        if (expired) {
+          setIdToken(null)
+          setIsAuthorized(false)
+          await router.push({
+            pathname: '/login',
+            query: {
+              message: 'Your session is either invalid or expired'
+            },
+          })
+        }
       }
-    })
-
-    const json = await response.json()
-    if (json) {
-      const expired = json['expired']
-      if (expired) {
-        setIdToken(null)
-        setIsAuthorized(false)
-        await router.push({
-          pathname: '/login',
-          query: {
-            message: 'Your session is either invalid or expired'
-          },
-        })
-      }
+      console.log(data);
+      setData(data);
+    } catch (err) {
+      console.log(err);
     }
   }
 
@@ -47,20 +62,12 @@ export default function Home() {
   }, [])
 
   return (
-    <>
-      <HTMLHead/>
-      <main>
-        {isAuthorized &&
-          <>
-            I am a protected page
-            <br/>
-            <button onClick={clickTest}>Test</button>
-          </>
-        }
-      </main>
-      {/*<Header/>*/}
-      {/*<AdminView/>*/}
-      {/*<Footer/>*/}
-    </>
-  )
+    <div>
+      <Head/>
+      <Header/>
+      {/* <TAView data={data} callBackend={callBackend}/> */}
+      {isAuthorized && <AdminView data={data} callBackend={callBackend}/>}
+      <Footer/>
+    </div>
+  );
 }

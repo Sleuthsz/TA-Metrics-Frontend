@@ -12,8 +12,12 @@
 
 *Version 1.4* Created API link for data to populate TA ticket View - March 11, 2023.
 
-*Version 1.5* Added Additional Tailwind styling, refactored component files and added conditionals for style rendering, updated README.md - March 13, 2023.
+*Version 1.5* Added Additional Tailwind styling, refactored component files and added conditionals for style rendering,
+updated README.md - March 13, 2023.
 
+Disable checking SSL errors in the
+browser for local
+development: https://stackoverflow.com/questions/49661488/how-to-turn-off-ssl-check-on-chrome-and-firefox-for-localhost
 
 To install dependencies:
 
