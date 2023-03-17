@@ -21,11 +21,6 @@ export default function Login() {
     }
 
     const urlSearchParams = new URLSearchParams(window.location.href.split('?')[1])
-    if (urlSearchParams.has('id_token')) {
-      setIdToken(urlSearchParams.get('id_token'))
-      setIsAuthorized(true)
-      router.push('/')
-    }
     if (urlSearchParams.has('expired')) {
       setIdToken(null)
       setIsAuthorized(false)
