@@ -27,5 +27,15 @@ export default function Redirect() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return <PacmanLoader color="#FF0000" loading="true"/>
+  return (
+    <div className="grid grid-cols-4">
+      <div className="h-96">&nbsp;</div>
+      <div className="h-96">&nbsp;</div>
+      <div className="h-96">&nbsp;</div>
+      <div className="h-96">&nbsp;</div>
+      <div className="flex justify-center">
+        <PacmanLoader color="#FF0000" loading="true"/>
+      </div>
+    </div>
+  )
 }
