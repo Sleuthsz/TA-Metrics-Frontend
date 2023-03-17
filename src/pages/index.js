@@ -7,6 +7,7 @@ import Head from "../../components/Head.js";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import AdminView from "../../components/AdminView";
+import TAView from "../../components/TAView"
 import jwtDecode from "jwt-decode";
 
 
@@ -65,8 +66,8 @@ export default function Home() {
     <div>
       <Head/>
       <Header/>
-      {/* <TAView data={data} callBackend={callBackend}/> */}
-      {isAuthorized && <AdminView data={data} callBackend={callBackend}/>}
+      {isAuthorized && <TAView data={data} callBackend={callBackend}/>}
+      {/* {isAuthorized && <AdminView data={data} callBackend={callBackend}/>} */}
       <Footer/>
     </div>
   );

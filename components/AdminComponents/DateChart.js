@@ -2,11 +2,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState, useEffect } from "react";
 
-export default function DateChart({callBackend}) {
-
+export default function DateChart({ callBackend }) {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const startStr = `${String(startDate.getFullYear())}-${String(
@@ -21,35 +20,42 @@ export default function DateChart({callBackend}) {
   };
 
   return (
-    <div className="mt-4 ml-6 w-full justify-center m-25 bg-yellow-50">
-    <DatePicker
-      className="mb-2 border-2 rounded bg-silver"
-      selected={startDate}
-      closeOnScroll={true}
-      onChange={(date) => setStartDate(date)}
-      selectsStart
-      startDate={startDate}
-      endDate={endDate}
-      
-      maxDate={Date.now()}
-    />
-    <DatePicker
-      className="border-2 rounded bg-silver"
-      selected={endDate}
-      onChange={(date) => setEndDate(date)}
-      closeOnScroll={true}
-      selectsEnd
-      startDate={startDate}
-      endDate={endDate}
-      minDate={startDate}
-      maxDate={Date.now()}
-    />
-    <button
-      className="p-1 mt-2 text-white border-2 rounded bg-metal"
-      onClick={handleSubmit}
-    >
-      Submit
-    </button>
+    <div className="flex flex-col items-center">
+      <button
+        className="w-1/6 mt-10 px-4 py-2 text-white bg-metal border-2 border-transparent rounded-lg shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
+        onClick={handleSubmit}
+      >
+        Submit
+      </button>
+      <div className="flex justify-center w-1/6 mt-10">
+        <div className="flex flex-col items-center w-full md:w-1/2">
+          <DatePicker
+            portalId="root-portal"
+            className="w-full p-2 border-2 border-black rounded-lg bg-gray-100 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            selected={startDate}
+            closeOnScroll={true}
+            onChange={(date) => setStartDate(date)}
+            selectsStart
+            startDate={startDate}
+            endDate={endDate}
+            maxDate={Date.now()}
+          />
+        </div>
+        <div className="flex flex-col items-center w-full md:w-1/2">
+          <DatePicker
+            portalId="root-portal"
+            className="w-full p-2 border-2 border-black rounded-lg bg-gray-100 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            closeOnScroll={true}
+            selectsEnd
+            startDate={startDate}
+            endDate={endDate}
+            minDate={startDate}
+            maxDate={Date.now()}
+          />
+        </div>
+      </div>
     </div>
-  )
+  );
 }
