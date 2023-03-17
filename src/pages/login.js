@@ -38,10 +38,16 @@ export default function Login() {
   }, [])
 
   return (
-    <>
-      {expiredMessage && expiredMessage}
-      <br/>
-      <SignInWithSlack/>
-    </>
+    <div className="grid grid-cols-4">
+      <div className="h-96">&nbsp;</div>
+      <div className="h-96">&nbsp;</div>
+      <div className="h-96">&nbsp;</div>
+      <div className="h-96">&nbsp;</div>
+      <div className="flex justify-center">
+        {expiredMessage && expiredMessage}
+        <br/>
+        <SignInWithSlack/>
+      </div>
+    </div>
   )
 }
