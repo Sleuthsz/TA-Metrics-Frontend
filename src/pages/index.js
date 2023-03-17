@@ -3,11 +3,11 @@ import {useRouter} from "next/router";
 import {useContext, useEffect, useState} from "react";
 import {shallow} from "zustand/shallow";
 import {AuthContext} from "../../contexts/authContext";
-import Head from "../../components/Head.js";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import AdminView from "../../components/AdminView";
 import jwtDecode from "jwt-decode";
+import HTMLHead from "../../components/HTMLHead";
 
 
 export default function Home() {
@@ -63,11 +63,16 @@ export default function Home() {
 
   return (
     <div>
-      <Head/>
-      <Header/>
-      {/* <TAView data={data} callBackend={callBackend}/> */}
-      {isAuthorized && <AdminView data={data} callBackend={callBackend}/>}
-      <Footer/>
+      <HTMLHead/>
+      {
+        isAuthorized &&
+        <>
+          <Header/>
+          {/* <TAView data={data} callBackend={callBackend}/> */}
+          <AdminView data={data} callBackend={callBackend}/>
+          <Footer/>
+        </>
+      }
     </div>
   );
 }
