@@ -22,7 +22,6 @@ const formatData = (data) => {
       );
       totalTickets += hourlyTickets;
       totalWait += hourlyWait;
-      console.log(totalWait)
       const date = item.date;
       const time = hour;
 

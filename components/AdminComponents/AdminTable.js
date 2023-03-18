@@ -46,7 +46,7 @@ export default function AdminTable({ data }) {
           <tbody>
             {data[0].map((day) => (
               <>
-                <tr key={uuidv4()}>
+                <tr key={`${day.date}${uuidv4()}`}>
                   <td
                     rowSpan="2"
                     key={uuidv4()}
@@ -60,7 +60,7 @@ export default function AdminTable({ data }) {
                   {hours.map((hour) => {
                     return (
                       <td
-                        key={uuidv4()}
+                        key={`${hour}${uuidv4()}`}
                         className={`px-4 py-2 border font-bold ${getClassForWaitTime(
                           (day["hours"][hour]["time"] / 60).toFixed(1)
                         )}`}
@@ -70,7 +70,7 @@ export default function AdminTable({ data }) {
                     );
                   })}
                 </tr>
-                <tr key={uuidv4()}>
+                <tr key={`Test ${uuidv4()}`}>
                   <td className="px-4 py-2 border font-bold bg-blue-100 hover:bg-blue-300">
                     Wait Time
                   </td>
