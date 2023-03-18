@@ -88,7 +88,7 @@ export default function TAView({ data }) {
                       }
                     >
                       <td className="px-4 py-2 border-2 border-black font-bold bg-blue-100">
-                        Wait Time
+                        Time Helped
                       </td>
                       {hours.map((hour) => {
                         return (
