@@ -1,18 +1,16 @@
-import {useRouter} from "next/router";
-import {useContext, useEffect, useState} from "react";
-import SignInWithSlack from "../../components/SignInWithSlack";
 import {useZustandStore} from "../../store/store";
 import {shallow} from "zustand/shallow";
+import {useRouter} from "next/router";
 import {AuthContext} from "../../contexts/authContext";
+import {useContext, useEffect} from "react";
+import {PacmanLoader} from "react-spinners";
 
-export default function Login() {
-  const [expiredMessage, setExpiredMessage] = useState('')
+export default function Redirect() {
   const [idToken, setIdToken] = useZustandStore(
     (state) => [state.idToken, state.setIdToken],
     shallow
   )
   const router = useRouter()
-
   const {setIsAuthorized} = useContext(AuthContext)
 
   useEffect(() => {
@@ -21,14 +19,11 @@ export default function Login() {
     }
 
     const urlSearchParams = new URLSearchParams(window.location.href.split('?')[1])
-    if (urlSearchParams.has('expired')) {
-      setIdToken(null)
-      setIsAuthorized(false)
+    if (urlSearchParams.has('id_token')) {
+      setIdToken(urlSearchParams.get('id_token'))
+      setIsAuthorized(true)
+      router.push('/')
     }
-    if (urlSearchParams.has('message')) {
-      setExpiredMessage(urlSearchParams.get('message'))
-    }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -39,9 +34,7 @@ export default function Login() {
       <div className="h-96">&nbsp;</div>
       <div className="h-96">&nbsp;</div>
       <div className="flex justify-center">
-        {expiredMessage && expiredMessage}
-        <br/>
-        <SignInWithSlack/>
+        <PacmanLoader color="#FF0000" loading="true"/>
       </div>
     </div>
   )
