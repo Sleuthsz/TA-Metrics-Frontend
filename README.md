@@ -1,21 +1,8 @@
 # TA Metrics
 
-## Version
+Don't forget to check out our back end repo for further API functionality. 
 
-*Version 1.0* Created team agreement, Trello board, README - March 6, 2023.
-
-*Version 1.2* Initial creation of NextJS and all components - March 7,2023.
-
-*Version 1.3* Tailwinds initial creation in component files - March 10, 2023.
-
-*Version 1.4* Created API link for data to populate TA ticket View - March 11, 2023.
-
-*Version 1.5* Added Additional Tailwind styling, refactored component files and added conditionals for style rendering,
-updated README.md - March 13, 2023.
-
-*Version 1.6* Added more Tailwind styling, refactored component files and added Admin chart, updated README.md - March 14, 2023.
-
-*Version 1.7* Finalizing Styling, updated README, linked all auth components and files, added TAView chart - March 15, 2023.
+[TA Metrics Back End](https://github.com/Sleuthsz/TA-Metrics-Backend/blob/stage/README.md)
 
 ## Getting Started
 
@@ -72,5 +59,28 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Links
 
-[TA Metrics Back End](https://github.com/Sleuthsz/TA-Metrics-Backend/blob/stage/README.md)
 Updating context: https://stackoverflow.com/questions/41030361/how-to-update-react-context-from-inside-a-child-component
+
+## Version
+
+*Version 1.0* Created team agreement, Trello board, README - March 6, 2023.
+
+*Version 1.2* Initial creation of NextJS and all components - March 7,2023.
+
+*Version 1.3* Tailwinds initial creation in component files - March 10, 2023.
+
+*Version 1.4* Created API link for data to populate TA ticket View - March 11, 2023.
+
+*Version 1.5* Added Additional Tailwind styling, refactored component files and added conditionals for style rendering,
+updated README.md - March 13, 2023.
+
+*Version 1.6* Added more Tailwind styling, refactored component files and added Admin chart, updated README.md - March 14, 2023.
+
+*Version 1.7* Finalizing Styling, updated README, linked all auth components and files, added TAView chart - March 15, 2023.
+
+*Version 1.8* TA View functionality refactored - March 16, 2023. 
+
+*Version 1.9* Final TA view functionality created, finalize styling - March 17, 2023.
+
+*Version 2* Touch up styling and updated README.md - March 18, 2023
+
