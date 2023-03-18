@@ -1,8 +1,8 @@
 import {create} from "zustand";
-import {createJSONStorage, devtools, persist} from "zustand/middleware";
+import {createJSONStorage, persist} from "zustand/middleware";
 
 export const useZustandStore = create(
-  devtools(persist(
+  persist(
     (set) => ({
       idToken: null,
       setIdToken: (idToken) => set(
@@ -15,5 +15,5 @@ export const useZustandStore = create(
       name: 'id-token-storage',
       storage: createJSONStorage(() => sessionStorage)
     }
-  ))
+  )
 )
