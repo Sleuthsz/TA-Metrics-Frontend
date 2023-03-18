@@ -1,9 +1,5 @@
 # TA Metrics
 
-Don't forget to check out our back end repo for further API functionality. 
-
-[TA Metrics Back End](https://github.com/Sleuthsz/TA-Metrics-Backend/blob/stage/README.md)
-
 ## Getting Started
 
 Disable checking SSL errors in the
@@ -44,6 +40,10 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Learn More
 
+Don't forget to check out our back end repo for further API functionality. 
+
+- [TA Metrics Back End](https://github.com/Sleuthsz/TA-Metrics-Backend/blob/stage/README.md)
+
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
@@ -82,5 +82,4 @@ updated README.md - March 13, 2023.
 
 *Version 1.9* Final TA view functionality created, finalize styling - March 17, 2023.
 
-*Version 2* Touch up styling and updated README.md - March 18, 2023
-
+*Version 2* Final touch up styling and updated README.md - March 18, 2023
