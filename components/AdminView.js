@@ -12,9 +12,7 @@ export default function AdminView({ data, callBackend }) {
 
   return (
     <div className="bg-yellow-50">
-      <h1 className="text-4xl mt-2 font-bold text-center">TA-Metrics</h1>
 
-      <h3 className="mt-4 ml-6 text-center text-4xl font-bold">Input Dates:</h3>
       <DateChart callBackend={callBackend} />
       {data.length > 0 ? (
         <div className="flex justify-center m-auto">
@@ -24,7 +22,9 @@ export default function AdminView({ data, callBackend }) {
         >
           {showChart ? "Show Table" : "Show Chart"}
         </button>
+        
         </div>
+        
       ) : (
         <div></div>
       )}

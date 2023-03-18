@@ -22,6 +22,7 @@ const formatData = (data) => {
       );
       totalTickets += hourlyTickets;
       totalWait += hourlyWait;
+      console.log(totalWait)
       const date = item.date;
       const time = hour;
 
@@ -54,8 +55,8 @@ export default function AdminChart({ data }) {
     <div className="flex justify-center m-auto w-3/4 h-auto">
       {chartData.length > 0 && (
         <BarChart
-          width={800}
-          height={600}
+          width={1200}
+          height={800}
           data={chartData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
@@ -78,6 +79,7 @@ export default function AdminChart({ data }) {
           <Line
             yAxisId="right"
             dataKey="totalWait"
+            type="monotone"
             stroke="#82ca9d"
             name="Wait Time (minutes)"
           />

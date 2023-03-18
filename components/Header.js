@@ -37,7 +37,7 @@ export default function Header() {
             Logout
           </button>
         </nav>
-        <p className="text-2xl">Welcome To Your Dashboard</p>
+        <h1 className="text-4xl mt-2 font-bold text-center">TA-Metrics</h1>
       </header>
     </div>
   )
