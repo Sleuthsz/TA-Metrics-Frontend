@@ -55,6 +55,8 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+Updating context: https://stackoverflow.com/questions/41030361/how-to-update-react-context-from-inside-a-child-component
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
@@ -71,6 +73,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ## Links
+Be sure to check out our server side repository as well for further build out information. 
 
 [TA Metrics Back End](https://github.com/Sleuthsz/TA-Metrics-Backend/blob/stage/README.md)
-Updating context: https://stackoverflow.com/questions/41030361/how-to-update-react-context-from-inside-a-child-component
+
