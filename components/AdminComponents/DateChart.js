@@ -29,6 +29,7 @@ export default function DateChart({ callBackend }) {
       </button>
       <div className="flex justify-center w-1/6 mt-10">
         <div className="flex flex-col items-center w-full md:w-1/2">
+          <p className="font 3xl text-center font-bold">Start Date</p>
           <DatePicker
             portalId="root-portal"
             className="w-full p-2 border-2 border-black rounded-lg bg-gray-100 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
@@ -42,6 +43,7 @@ export default function DateChart({ callBackend }) {
           />
         </div>
         <div className="flex flex-col items-center w-full md:w-1/2">
+        <p className="font 3xl text-center font-bold">End Date</p>
           <DatePicker
             portalId="root-portal"
             className="w-full p-2 border-2 border-black rounded-lg bg-gray-100 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
