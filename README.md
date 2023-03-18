@@ -46,7 +46,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 Don't forget to check out our back end repo for further API functionality. 
 
-- [TA Metrics Back End](https://github.com/Sleuthsz/TA-Metrics-Backend/blob/stage/README.md)
+- [TA Metrics Back End](https://github.com/Sleuthsz/TA_Metrics_Backend)
 
 To learn more about Next.js, take a look at the following resources:
 
