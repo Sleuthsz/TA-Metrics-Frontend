@@ -64,20 +64,13 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Functions and Methods
-
-| Function or Method       | Summary                                                                            | Big O Time | Big O Space | Example                       | 
-|:-------------------------|:-----------------------------------------------------------------------------------|:----------:|:-----------:|:------------------------------|
-| callBackend()            | Makes call to back end API and returns JSON data if available based on dates input |    O(n)    |    O(n)     | callBackend(url)              |
-| formatData()             | Formats data for Admin Chart.                                                      |    O(n)    |    O(n)     | setChartData(formatData(data) |
-| getClassForWaitTime      | Formats data for color coded rendering of Admin Table based on average times.      |    O(n)    |    O(n)     | getClassForWaitTime(waitTime) |
-
-
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-Updating context: https://stackoverflow.com/questions/41030361/how-to-update-react-context-from-inside-a-child-component
+## Links
 
+[TA Metrics Back End](https://github.com/Sleuthsz/TA-Metrics-Backend/blob/stage/README.md)
+Updating context: https://stackoverflow.com/questions/41030361/how-to-update-react-context-from-inside-a-child-component
