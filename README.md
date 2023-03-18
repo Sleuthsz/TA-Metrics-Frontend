@@ -1,6 +1,38 @@
 # TA Metrics
 
-# Resources
+## Getting Started
+
+Disable checking SSL errors in the
+browser for local
+development: https://stackoverflow.com/questions/49661488/how-to-turn-off-ssl-check-on-chrome-and-firefox-for-localhost
+
+To install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` with the following variables:
+
+```dotenv
+NEXT_PUBLIC_BACKEND_BASE_URL=<YOUR_BASE_URL>
+```
+
+To run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+## Resources
+
+Updating context: https://stackoverflow.com/questions/41030361/how-to-update-react-context-from-inside-a-child-component
+
+## Resources
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
