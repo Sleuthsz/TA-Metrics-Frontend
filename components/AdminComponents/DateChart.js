@@ -7,6 +7,7 @@ export default function DateChart({
   endDate,
   setStartDate,
   setEndDate,
+  showTAView,
 }) {
   const weekData = () => {
     const date = new Date().toLocaleDateString("en-US", {
@@ -25,16 +26,20 @@ export default function DateChart({
 
   return (
     <div className="flex flex-col items-center">
-      <button
-        onClick={weekData}
-        className="w-1/6 px-4 py-2 mt-10 text-white border-2 border-transparent rounded-lg shadow-sm bg-metal hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
-      >
-        Past Week
-      </button>
+      {showTAView === false ? (
+        <button
+          onClick={weekData}
+          className="w-1/6 px-4 py-2 mt-10 text-white border-2 border-transparent rounded-lg shadow-sm bg-metal hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
+        >
+          Past Week
+        </button>
+      ) : (
+        <div></div>
+      )}
 
-      <h3>Custom Date Range:</h3>
+      <h3 className="font-bold align-bottom p-0 mt-12">Custom Date Range:</h3>
 
-      <div className="flex justify-center w-1/6 mt-10">
+      <div className="flex justify-center w-1/6">
         <div className="flex flex-col items-center w-full md:w-1/2">
           <p className="font-bold text-center font 3xl">Start Date</p>
           <DatePicker
@@ -65,7 +70,6 @@ export default function DateChart({
           />
         </div>
       </div>
-
     </div>
   );
 }
