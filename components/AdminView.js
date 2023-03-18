@@ -23,6 +23,7 @@ export default function AdminView({
   };
   const isDataEmpty = data.length === 0;
   const containerClassName = isDataEmpty ? "h-screen" : "h-auto";
+  const taViewStlying = showTAView ? "bg-gray-50": "bg-yellow-50";
 
   useEffect(() => {
     fetchNames();
@@ -64,9 +65,9 @@ export default function AdminView({
   };
 
   return (
-    <div className={`bg-yellow-50 ${containerClassName}`}>
+    <div className={`${taViewStlying} ${containerClassName}`}>
       <button
-        className="p-1 mt-2 ml-2 text-white border-2 rounded bg-metal hover:bg-gray-600"
+        className="p-1 mt-2 ml-2 w-24 h-16 font-bold text-white border-2 rounded bg-metal hover:bg-gray-600"
         onClick={toggleTAView}
       >
         {showTAView ? "Admin View" : "TA View"}
@@ -77,6 +78,7 @@ export default function AdminView({
         setStartDate={setStartDate}
         startDate={startDate}
         endDate={endDate}
+        showTAView={showTAView}
       />
       {showTAView && (
         <select
