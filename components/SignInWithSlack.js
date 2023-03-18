@@ -21,10 +21,10 @@ export default function SignInWithSlack() {
         fontFamily: "Lato, sans-serif",
         fontSize: "16px",
         fontWeight: 600,
-        height: "48px",
+        height: "120px",
         justifyContent: "center",
         textDecoration: "none",
-        width: "256px"
+        width: "312px"
       }}
     >
       <Image priority src="images/slack-button.svg" alt="Slack Button" width="32" height="32"/>&nbsp;
